@@ -1,20 +1,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>My Blogs on Palenight Blues</title>
-        <link>https://palenight.blues.github.io/posts/</link>
+        <link>https://katakinonai.github.io/posts/</link>
         <description>Recent content in My Blogs on Palenight Blues</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
         <lastBuildDate>Tue, 15 Nov 2022 14:06:53 +0500</lastBuildDate>
-        <atom:link href="https://palenight.blues.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-        
+        <atom:link href="https://katakinonai.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+
         <item>
             <title>Take Screenshots in Bspwm with ImageMagick</title>
-            <link>https://palenight.blues.github.io/posts/take-screenshots-in-bspwm-with-imagemagick/</link>
+            <link>https://katakinonai.github.io/posts/take-screenshots-in-bspwm-with-imagemagick/</link>
             <pubDate>Tue, 15 Nov 2022 14:06:53 +0500</pubDate>
-            
-            <guid>https://palenight.blues.github.io/posts/take-screenshots-in-bspwm-with-imagemagick/</guid>
+
+            <guid>https://katakinonai.github.io/posts/take-screenshots-in-bspwm-with-imagemagick/</guid>
             <description>Prerequisites Packages:
 bspwm sxhkd imagemagick (in some repos &amp;lsquo;ImageMagick&amp;rsquo;) notify-send bspwmrc Initialize sxhkd in your bspwmrc (by default, located in $HOME/.config/bspwm/bspwmrc);
 pgrep -x sxhkd &amp;gt; /dev/null || sxhkd &amp;amp; Custom directory You can create a custom directory to keep your screenshots in there, for example:
@@ -56,13 +56,13 @@ Take a screenshot of a certain area and save it: super + p import $HOME/Pictures
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  <span style="color:#f92672">&amp;&amp;</span> notify-send <span style="color:#e6db74">&#34;Screenshot was taken&#34;</span>
 </span></span></code></pre></div>]]></content>
         </item>
-        
+
         <item>
             <title>How to easily host a Hugo website on Github Pages</title>
-            <link>https://palenight.blues.github.io/posts/simply-host-hugo-website-on-github-pages/</link>
+            <link>https://katakinonai.github.io/posts/simply-host-hugo-website-on-github-pages/</link>
             <pubDate>Sat, 12 Nov 2022 18:14:20 +0500</pubDate>
-            
-            <guid>https://palenight.blues.github.io/posts/simply-host-hugo-website-on-github-pages/</guid>
+
+            <guid>https://katakinonai.github.io/posts/simply-host-hugo-website-on-github-pages/</guid>
             <description>Documentation:
 Hugo Github Pages Prerequisites Steps from Quick Start Have some content in .md in /content folder Theme installed (themes list) Separate Github repository for the project created Action If you have cloned repositories in the /themes folder, remove .git directories in them. Otherwise, it will cause an error when building remotely.
 Build your project into /public folder: hugo Add all the files from the project root folder to a commit and push it to the repo.</description>
@@ -95,13 +95,13 @@ Build your project into /public folder: hugo Add all the files from the project 
 <p>Now, your project must be built and available by the URL. If not, open &ldquo;Actions&rdquo; in the navbar and see the last build attempt.</p>
 ]]></content>
         </item>
-        
+
         <item>
             <title>Multiple monitor setup - bspwm &#43; Polybar</title>
-            <link>https://palenight.blues.github.io/posts/multiple-monitor-setup-bspwm-&#43;-polybar/</link>
+            <link>https://katakinonai.github.io/posts/multiple-monitor-setup-bspwm-&#43;-polybar/</link>
             <pubDate>Thu, 10 Nov 2022 19:49:41 +0500</pubDate>
-            
-            <guid>https://palenight.blues.github.io/posts/multiple-monitor-setup-bspwm-&#43;-polybar/</guid>
+
+            <guid>https://katakinonai.github.io/posts/multiple-monitor-setup-bspwm-&#43;-polybar/</guid>
             <description>Required packages:
 bspwm polybar xrandr autorandr Detect connected displays First of all, we want to check the discriptors of connected displays with this command:
 &amp;gt; xrandr --listmonitors Monitors: 2 0: +*eDP1 1920/280x1080/160+0+0 eDP1 1: +HDMI2 1680/470x1050/300+1920+0 HDMI2 Let&amp;rsquo;s remember these; I&amp;rsquo;ll describe my monitors as eDP1 (my laptop&amp;rsquo;s display) and HDMI2 (external monitor).
@@ -245,13 +245,13 @@ Startup script Next, we&amp;rsquo;re going to create a script which detects an e
 <p>That&rsquo;s it! Now, you will be able to switch between multiple separate desktops on each display. Everything should work fine after reconnecting an external display - you will still get several new desktops on it.</p>
 ]]></content>
         </item>
-        
+
         <item>
             <title>How to install and patch st</title>
-            <link>https://palenight.blues.github.io/posts/how-to-patch-simple-terminal/</link>
+            <link>https://katakinonai.github.io/posts/how-to-patch-simple-terminal/</link>
             <pubDate>Wed, 09 Nov 2022 19:30:30 +0500</pubDate>
-            
-            <guid>https://palenight.blues.github.io/posts/how-to-patch-simple-terminal/</guid>
+
+            <guid>https://katakinonai.github.io/posts/how-to-patch-simple-terminal/</guid>
             <description>Patching documentation
 Click the download link on the st website at the very bottom and extract (replace the version number):
 cd $HOME/Downloads/ tar xvf st-X.X.tar.gz Now, you can build and have a working binary of st (although, very minimal):
@@ -274,6 +274,6 @@ patch -p1 &amp;lt; path/to/patch.diff And rebuild the binary:</description>
 </span></span></code></pre></div><p>Voilà! The patch should be applied.</p>
 ]]></content>
         </item>
-        
+
     </channel>
 </rss>
