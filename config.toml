@@ -1,4 +1,4 @@
-baseurl      = "https://rosharp.github.io/"
+baseurl      = "https://palenight.blues.github.io/"
 languageCode = "en-us"
 theme        = "cactus"
 paginate     = 10
@@ -26,7 +26,7 @@ rss = true
 
 [[params.social]]
 name = "github"
-link = "https://github.com/rosharp"
+link = "https://github.com/katakinonai"
 
 [[params.social]]
 name = "email"
