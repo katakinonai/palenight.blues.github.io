@@ -1,0 +1,279 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>My Blogs on Palenight Blues</title>
+        <link>https://rosharp.github.io/posts/</link>
+        <description>Recent content in My Blogs on Palenight Blues</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Tue, 15 Nov 2022 14:06:53 +0500</lastBuildDate>
+        <atom:link href="https://rosharp.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Take Screenshots in Bspwm with ImageMagick</title>
+            <link>https://rosharp.github.io/posts/take-screenshots-in-bspwm-with-imagemagick/</link>
+            <pubDate>Tue, 15 Nov 2022 14:06:53 +0500</pubDate>
+            
+            <guid>https://rosharp.github.io/posts/take-screenshots-in-bspwm-with-imagemagick/</guid>
+            <description>Prerequisites Packages:
+bspwm sxhkd imagemagick (in some repos &amp;lsquo;ImageMagick&amp;rsquo;) notify-send bspwmrc Initialize sxhkd in your bspwmrc (by default, located in $HOME/.config/bspwm/bspwmrc);
+pgrep -x sxhkd &amp;gt; /dev/null || sxhkd &amp;amp; Custom directory You can create a custom directory to keep your screenshots in there, for example:
+mkdir $HOME/Pictures/Screenshots/ sxhkdrc Let&amp;rsquo;s create keybindingds in sxhkdrc (by default, located in $HOME/.config/sxhkd/sxhkdrc).
+Take a screenshot of a certain area and save it: super + p import $HOME/Pictures/Screenshots/Screenshot\ $(date).</description>
+            <content type="html"><![CDATA[<h2 id="prerequisites">Prerequisites</h2>
+<p>Packages:</p>
+<ul>
+<li>bspwm</li>
+<li>sxhkd</li>
+<li>imagemagick (in some repos &lsquo;ImageMagick&rsquo;)</li>
+<li>notify-send</li>
+</ul>
+<h2 id="bspwmrc">bspwmrc</h2>
+<p>Initialize <code>sxhkd</code> in your <code>bspwmrc</code> (by default, located in <code>$HOME/.config/bspwm/bspwmrc</code>);</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pgrep -x sxhkd &gt; /dev/null <span style="color:#f92672">||</span> sxhkd &amp;
+</span></span></code></pre></div><h2 id="custom-directory">Custom directory</h2>
+<p>You can create a custom directory to keep your screenshots in there, for example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir $HOME/Pictures/Screenshots/
+</span></span></code></pre></div><h2 id="sxhkdrc">sxhkdrc</h2>
+<p>Let&rsquo;s create keybindingds in <code>sxhkdrc</code> (by default, located in <code>$HOME/.config/sxhkd/sxhkdrc</code>).</p>
+<ol>
+<li>Take a screenshot of a certain area and save it:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>super + p
+</span></span><span style="display:flex;"><span>  import $HOME/Pictures/Screenshots/Screenshot<span style="color:#ae81ff">\ </span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span>.png
+</span></span></code></pre></div><ol start="2">
+<li>Take a screenshot of the entire screen (including external displays):</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>super + shift + p
+</span></span><span style="display:flex;"><span>  import -window root $HOME/Pictures/Screenshots/Screenshot<span style="color:#ae81ff">\ </span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span>.png
+</span></span></code></pre></div><blockquote>
+<p>If you&rsquo;re using <code>xbanish</code> to hide the cursor when typing, it will cause the cursor to disappear after pressing a keybinding to take a screenshot of a certain area.</p>
+</blockquote>
+<h2 id="adding-notification">Adding notification</h2>
+<p>You may add a pop-up notification after taking a screenshot, for example, modifying what we&rsquo;ve previously written:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>super + p
+</span></span><span style="display:flex;"><span>  import $HOME/Pictures/Screenshots/Screenshot<span style="color:#ae81ff">\ </span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span>.png <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  <span style="color:#f92672">&amp;&amp;</span> notify-send <span style="color:#e6db74">&#34;Screenshot was taken&#34;</span>
+</span></span></code></pre></div>]]></content>
+        </item>
+        
+        <item>
+            <title>How to easily host a Hugo website on Github Pages</title>
+            <link>https://rosharp.github.io/posts/simply-host-hugo-website-on-github-pages/</link>
+            <pubDate>Sat, 12 Nov 2022 18:14:20 +0500</pubDate>
+            
+            <guid>https://rosharp.github.io/posts/simply-host-hugo-website-on-github-pages/</guid>
+            <description>Documentation:
+Hugo Github Pages Prerequisites Steps from Quick Start Have some content in .md in /content folder Theme installed (themes list) Separate Github repository for the project created Action If you have cloned repositories in the /themes folder, remove .git directories in them. Otherwise, it will cause an error when building remotely.
+Build your project into /public folder: hugo Add all the files from the project root folder to a commit and push it to the repo.</description>
+            <content type="html"><![CDATA[<p>Documentation:</p>
+<ul>
+<li><a href="https://gohugo.io/documentation/">Hugo</a></li>
+<li><a href="https://docs.github.com/en/rest/pages">Github Pages</a></li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Steps from <a href="https://gohugo.io/getting-started/quick-start/">Quick Start</a></li>
+<li>Have some content in <code>.md</code> in <code>/content</code> folder</li>
+<li>Theme installed (<a href="https://hugothemesfree.com/">themes list</a>)</li>
+<li>Separate Github repository for the project created</li>
+</ul>
+<h2 id="action">Action</h2>
+<p><em>If you have cloned repositories in the <code>/themes</code> folder, remove <code>.git</code> directories in them. Otherwise, it will cause an error when building remotely.</em></p>
+<ol>
+<li>Build your project into <code>/public</code> folder:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo
+</span></span></code></pre></div><ol start="2">
+<li>Add all the files from the project root folder to a commit and push it to the repo.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git add . <span style="color:#f92672">&amp;&amp;</span> git commit -m <span style="color:#e6db74">&#34;Initial commit&#34;</span> <span style="color:#f92672">&amp;&amp;</span> git push -u
+</span></span></code></pre></div><ol start="3">
+<li>Open your repository on Github and click &ldquo;Settings&rdquo;. Open &ldquo;Pages&rdquo; and in &ldquo;Branch&rdquo; subsection choose &ldquo;/docs&rdquo; folder. Click &ldquo;Save&rdquo;.</li>
+</ol>
+<p>You may use Github Actions, but the easier way is to deploy from &ldquo;/docs&rdquo; folder directly.</p>
+<p>Now, your project must be built and available by the URL. If not, open &ldquo;Actions&rdquo; in the navbar and see the last build attempt.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Multiple monitor setup - bspwm &#43; Polybar</title>
+            <link>https://rosharp.github.io/posts/multiple-monitor-setup-bspwm-&#43;-polybar/</link>
+            <pubDate>Thu, 10 Nov 2022 19:49:41 +0500</pubDate>
+            
+            <guid>https://rosharp.github.io/posts/multiple-monitor-setup-bspwm-&#43;-polybar/</guid>
+            <description>Required packages:
+bspwm polybar xrandr autorandr Detect connected displays First of all, we want to check the discriptors of connected displays with this command:
+&amp;gt; xrandr --listmonitors Monitors: 2 0: +*eDP1 1920/280x1080/160+0+0 eDP1 1: +HDMI2 1680/470x1050/300+1920+0 HDMI2 Let&amp;rsquo;s remember these; I&amp;rsquo;ll describe my monitors as eDP1 (my laptop&amp;rsquo;s display) and HDMI2 (external monitor).
+Startup script Next, we&amp;rsquo;re going to create a script which detects an external monitor when connected, moves bspwm desktops to it and removes those when a monitor is disconnected.</description>
+            <content type="html"><![CDATA[<p><img src="/Multiple-Monitor-Setup-bspwm-+-Polybar/IMG_0120.PNG" alt="Image"></p>
+<p>Required packages:</p>
+<ul>
+<li>bspwm</li>
+<li>polybar</li>
+<li>xrandr</li>
+<li>autorandr</li>
+</ul>
+<h2 id="detect-connected-displays">Detect connected displays</h2>
+<p>First of all, we want to check the discriptors of connected displays with this command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; xrandr --listmonitors
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Monitors: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span> 0: +*eDP1 1920/280x1080/160+0+0  eDP1
+</span></span><span style="display:flex;"><span> 1: +HDMI2 1680/470x1050/300+1920+0  HDMI2
+</span></span></code></pre></div><p>Let&rsquo;s remember these; I&rsquo;ll describe my monitors as eDP1 (my laptop&rsquo;s display) and HDMI2 (external monitor).</p>
+<h2 id="startup-script">Startup script</h2>
+<p>Next, we&rsquo;re going to create a script which detects an external monitor when connected, moves bspwm desktops to it and removes those when a monitor is disconnected.</p>
+<p>You can store it where you like, just make sure to use the correct path to it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#! /bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>internal_monitor<span style="color:#f92672">=</span>eDP1
+</span></span><span style="display:flex;"><span>external_monitor<span style="color:#f92672">=</span>HDMI2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> external_monitor <span style="color:#f92672">=</span> *connected* <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    xrandr --output internal_monitor --primary --mode 1920x1080 --rotate normal --output external_monitor --mode 1680x1050 --rotate normal --right-of internal_monitor
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>monitor_add<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	desktops<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span> <span style="color:#75715e"># How many desktops to move to the second monitor</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> desktop in <span style="color:#66d9ef">$(</span>bspc query -D -m $internal_monitor | sed <span style="color:#e6db74">&#34;</span>$desktops<span style="color:#e6db74">&#34;</span>q<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>		bspc desktop $desktop --to-monitor $external_monitor
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Remove &#34;Desktop&#34; created by bspwm</span>
+</span></span><span style="display:flex;"><span>  bspc desktop Desktop --remove
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>monitor_remove<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	bspc monitor $internal_monitor -a Desktop <span style="color:#75715e"># Temp desktop because one desktop required per monitor</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># Move everything to external monitor to reorder desktops</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> desktop in <span style="color:#66d9ef">$(</span>bspc query -D -m $internal_monitor<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>		bspc desktop $desktop --to-monitor $external_monitor
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># Now move everything back to internal monitor</span>
+</span></span><span style="display:flex;"><span>	bspc monitor $external_monitor -a Desktop <span style="color:#75715e"># Temp desktop</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> desktop in <span style="color:#66d9ef">$(</span>bspc query -D -m $external_monitor<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>		bspc desktop $desktop --to-monitor $internal_monitor
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	bspc desktop Desktop --remove <span style="color:#75715e"># Remove temp desktops</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#66d9ef">$(</span>xrandr -q | grep <span style="color:#e6db74">&#34;</span>$external_monitor<span style="color:#e6db74"> connected&#34;</span><span style="color:#66d9ef">)</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    monitor_add
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    monitor_remove
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>Make it executable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>chmod +x $HOME/path/to/script/startup
+</span></span></code></pre></div><h2 id="bspwm">bspwm</h2>
+<p>In <code>bspwmrc</code> add the needed desktop numbers by monitor descriptors like this and add the polybar launch script if you haven&rsquo;t already:</p>
+<p>$HOME/.config/bspwm/bspwmrc</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#! /bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>bspc monitor eDP1 -d <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> 
+</span></span><span style="display:flex;"><span>bspc monitor HDMI2 -d <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span> <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -x $HOME/path/to/polybar/launch.sh <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  $HOME/path/to/polybar/launch.sh &amp;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><h2 id="polybar">Polybar</h2>
+<p>Let&rsquo;s create a separate Polybar instance for the external monitor.</p>
+<p>Pay attention to adding <code>pin-workspaces = true</code> to both main and secondary bars.</p>
+<p>$HOME/.config/polybar/config.ini</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>bar/main<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>width <span style="color:#f92672">=</span> 100%
+</span></span><span style="display:flex;"><span>height <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>offset-y <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>bottom <span style="color:#f92672">=</span> false 
+</span></span><span style="display:flex;"><span>fixed-center <span style="color:#f92672">=</span> true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>monitor <span style="color:#f92672">=</span> eDP1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pin-workspaces <span style="color:#f92672">=</span> true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>bar/external<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>width <span style="color:#f92672">=</span> 100%
+</span></span><span style="display:flex;"><span>height <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>offset-y <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>bottom <span style="color:#f92672">=</span> false 
+</span></span><span style="display:flex;"><span>fixed-center <span style="color:#f92672">=</span> true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>monitor <span style="color:#f92672">=</span> HDMI2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pin-workspaces <span style="color:#f92672">=</span> true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>Launch the secondary (external) Polybar instance conditionally when the external monitor is connected. My launch script looks like this:</p>
+<p>$HOME/.config/polybar/launch.sh</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>killall polybar
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> pgrep -u $UID -x polybar &gt;/dev/null; <span style="color:#66d9ef">do</span> sleep 1; <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>CONFIG_DIR<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>dirname $0<span style="color:#66d9ef">)</span>/themes/$THEME/config.ini
+</span></span><span style="display:flex;"><span>polybar main -c $CONFIG_DIR &amp;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># launch secondary Polybar if an external monitor is connected</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> <span style="color:#66d9ef">$(</span>xrandr -q | grep <span style="color:#e6db74">&#39;HDMI2 connected&#39;</span><span style="color:#66d9ef">)</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  polybar external -c $CONFIG_DIR &amp;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><h1 id="autorandr">autorandr</h1>
+<p>This command will magically make your external monitor work: it sets the resolution and puts it to the right of your primary display.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>xrandr --output internal_monitor --primary --mode 1920x1080 --rotate normal --output external_monitor --mode 1680x1050 --rotate normal --right-of internal_monitor
+</span></span></code></pre></div><p><a href="https://github.com/wertarbyte/autorandr">Autorandr</a> automatically selects a display configuration based on connected devices, so you don&rsquo;t need to use the previous command all the time when connecting a display. Let&rsquo;s create a separate profile with an external display:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>autorandr -s docked
+</span></span></code></pre></div><p>Then, you can disconnect your external display and create a profile just for a primary display (I personally don&rsquo;t use it):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>xrandr --output internal_monitor --primary --mode 1920x1080 --rotate normal
+</span></span><span style="display:flex;"><span>autorandr -s undocked
+</span></span></code></pre></div><p>Finally, create a file called <code>postswitch</code> in the <code>autorandr</code> directory. Put our newly made startup in it in order to run it every time you connect an external display:</p>
+<p>$HOME/.config/autorandr/postswitch</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#! /bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>$HOME/path/to/script/startup
+</span></span></code></pre></div><p>And make it executable:</p>
+<p><code>chmod +x $HOME/.config/autorandr/postswitch</code></p>
+<p>That&rsquo;s it! Now, you will be able to switch between multiple separate desktops on each display. Everything should work fine after reconnecting an external display - you will still get several new desktops on it.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>How to install and patch st</title>
+            <link>https://rosharp.github.io/posts/how-to-patch-simple-terminal/</link>
+            <pubDate>Wed, 09 Nov 2022 19:30:30 +0500</pubDate>
+            
+            <guid>https://rosharp.github.io/posts/how-to-patch-simple-terminal/</guid>
+            <description>Patching documentation
+Click the download link on the st website at the very bottom and extract (replace the version number):
+cd $HOME/Downloads/ tar xvf st-X.X.tar.gz Now, you can build and have a working binary of st (although, very minimal):
+cd st-X.X/ make clean install Check out the available patches here. Take the one you need and download with:
+curl -O &amp;lt;download link&amp;gt; Apply the patch:
+patch -p1 &amp;lt; path/to/patch.diff And rebuild the binary:</description>
+            <content type="html"><![CDATA[<p><a href="https://suckless.org/hacking/">Patching documentation</a></p>
+<p>Click the download link on the <a href="https://st.suckless.org/">st</a> website at the very bottom and extract (replace the version number):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd $HOME/Downloads/ 
+</span></span><span style="display:flex;"><span>tar xvf st-X.X.tar.gz
+</span></span></code></pre></div><p>Now, you can build and have a working binary of st (although, very minimal):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd st-X.X/
+</span></span><span style="display:flex;"><span>make clean install
+</span></span></code></pre></div><p>Check out the available patches <a href="https://st.suckless.org/patches/">here</a>. Take the one you need and download with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl -O &lt;download link&gt;
+</span></span></code></pre></div><p>Apply the patch:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>patch -p1 &lt; path/to/patch.diff
+</span></span></code></pre></div><p>And rebuild the binary:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>make clean install
+</span></span></code></pre></div><p>Voilà! The patch should be applied.</p>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>
