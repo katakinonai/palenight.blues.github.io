@@ -1,6 +1,6 @@
 baseurl      = "https://katakinonai.github.io/"
 languageCode = "en-us"
-theme        = "cactus"
+theme        = "minimal"
 googleAnalytics = "9923759311"
 
 [pagination]
