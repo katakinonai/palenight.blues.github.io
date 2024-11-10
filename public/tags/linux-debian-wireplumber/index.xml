@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux Debian Wireplumber on </title>
+    <link>https://katakinonai.github.io/tags/linux-debian-wireplumber/</link>
+    <description>Recent content in Linux Debian Wireplumber on </description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 01 Jan 2023 17:30:15 +0500</lastBuildDate>
+    <atom:link href="https://katakinonai.github.io/tags/linux-debian-wireplumber/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PipeWire with Wireplumber on Debian</title>
+      <link>https://katakinonai.github.io/posts/pipewire-with-wireplumber-on-debian/</link>
+      <pubDate>Sun, 01 Jan 2023 17:30:15 +0500</pubDate>
+      <guid>https://katakinonai.github.io/posts/pipewire-with-wireplumber-on-debian/</guid>
+      <description>&lt;h2 id=&#34;add-the-repo&#34;&gt;Add the repo&lt;/h2&gt;&#xA;&lt;p&gt;To be able to download Wireplumber, let&amp;rsquo;s first add the repository.&lt;/p&gt;&#xA;&lt;p&gt;Find your architecture &lt;a href=&#34;https://packages.debian.org/sid/wireplumber&#34;&gt;here&lt;/a&gt; and follow the instructions. Here&amp;rsquo;s an example for AMD64 machines, add this to your &lt;code&gt;/etc/apt/sources.list&lt;/code&gt;:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;deb http://ftp.de.debian.org/debian sid main&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Be sure to remove the repository from &lt;code&gt;/etc/apt/sources.list.d/&lt;/code&gt; after installing all the necessary packages. If you run &lt;code&gt;apt update &amp;amp;&amp;amp; apt upgrade&lt;/code&gt; while having the added unstable repo in the list, upgrading will switch your system to unstable.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on </title>
+    <link>https://katakinonai.github.io/tags/hugo/</link>
+    <description>Recent content in Hugo on </description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 12 Nov 2022 18:14:20 +0500</lastBuildDate>
+    <atom:link href="https://katakinonai.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to easily host a Hugo website on Github Pages</title>
+      <link>https://katakinonai.github.io/posts/simply-host-hugo-website-on-github-pages/</link>
+      <pubDate>Sat, 12 Nov 2022 18:14:20 +0500</pubDate>
+      <guid>https://katakinonai.github.io/posts/simply-host-hugo-website-on-github-pages/</guid>
+      <description>&lt;p&gt;Documentation:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gohugo.io/documentation/&#34;&gt;Hugo&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.github.com/en/rest/pages&#34;&gt;Github Pages&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Steps from &lt;a href=&#34;https://gohugo.io/getting-started/quick-start/&#34;&gt;Quick Start&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Have some content in &lt;code&gt;.md&lt;/code&gt; in &lt;code&gt;/content&lt;/code&gt; folder&lt;/li&gt;&#xA;&lt;li&gt;Theme installed (&lt;a href=&#34;https://hugothemesfree.com/&#34;&gt;themes list&lt;/a&gt;)&lt;/li&gt;&#xA;&lt;li&gt;Separate Github repository for the project created&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;action&#34;&gt;Action&lt;/h2&gt;&#xA;&lt;p&gt;&lt;em&gt;If you have cloned repositories in the &lt;code&gt;/themes&lt;/code&gt; folder, remove &lt;code&gt;.git&lt;/code&gt; directories in them. Otherwise, it will cause an error when building remotely.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Build your project into &lt;code&gt;/public&lt;/code&gt; folder:&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;Add all the files from the project root folder to a commit and push it to the repo.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git add . &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Initial commit&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; git push -u&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;Open your repository on Github and click &amp;ldquo;Settings&amp;rdquo;. Open &amp;ldquo;Pages&amp;rdquo; and in &amp;ldquo;Branch&amp;rdquo; subsection choose &amp;ldquo;/docs&amp;rdquo; folder. Click &amp;ldquo;Save&amp;rdquo;.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;You may use Github Actions, but the easier way is to deploy from &amp;ldquo;/docs&amp;rdquo; folder directly.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

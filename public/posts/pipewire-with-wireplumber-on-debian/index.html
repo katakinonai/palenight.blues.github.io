@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> PipeWire with Wireplumber on Debian | </title>
+  <link rel = 'canonical' href = 'https://katakinonai.github.io/posts/pipewire-with-wireplumber-on-debian/'>
+  <meta name="description" content="Here I write about Linux and other tech related stuff.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:url" content="https://katakinonai.github.io/posts/pipewire-with-wireplumber-on-debian/">
+  <meta property="og:site_name" content="Palenight Blues">
+  <meta property="og:title" content="PipeWire with Wireplumber on Debian">
+  <meta property="og:description" content="Add the repo To be able to download Wireplumber, let’s first add the repository.
+Find your architecture here and follow the instructions. Here’s an example for AMD64 machines, add this to your /etc/apt/sources.list:
+deb http://ftp.de.debian.org/debian sid main Be sure to remove the repository from /etc/apt/sources.list.d/ after installing all the necessary packages. If you run apt update &amp;&amp; apt upgrade while having the added unstable repo in the list, upgrading will switch your system to unstable.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-01-01T17:30:15+05:00">
+    <meta property="article:modified_time" content="2023-01-01T17:30:15+05:00">
+    <meta property="article:tag" content="Linux Debian Wireplumber">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="PipeWire with Wireplumber on Debian">
+  <meta name="twitter:description" content="Add the repo To be able to download Wireplumber, let’s first add the repository.
+Find your architecture here and follow the instructions. Here’s an example for AMD64 machines, add this to your /etc/apt/sources.list:
+deb http://ftp.de.debian.org/debian sid main Be sure to remove the repository from /etc/apt/sources.list.d/ after installing all the necessary packages. If you run apt update &amp;&amp; apt upgrade while having the added unstable repo in the list, upgrading will switch your system to unstable.">
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://katakinonai.github.io/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css" integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N&#43;XoIuZg=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://katakinonai.github.io/images/favicon.ico" />
+
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Posts</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://katakinonai.github.io/posts/take-screenshots-in-bspwm-with-imagemagick/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fkatakinonai.github.io%2fposts%2fpipewire-with-wireplumber-on-debian%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fkatakinonai.github.io%2fposts%2fpipewire-with-wireplumber-on-debian%2f&text=PipeWire%20with%20Wireplumber%20on%20Debian" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fkatakinonai.github.io%2fposts%2fpipewire-with-wireplumber-on-debian%2f&title=PipeWire%20with%20Wireplumber%20on%20Debian" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fkatakinonai.github.io%2fposts%2fpipewire-with-wireplumber-on-debian%2f&is_video=false&description=PipeWire%20with%20Wireplumber%20on%20Debian" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=PipeWire%20with%20Wireplumber%20on%20Debian&body=Check out this article: https%3a%2f%2fkatakinonai.github.io%2fposts%2fpipewire-with-wireplumber-on-debian%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fkatakinonai.github.io%2fposts%2fpipewire-with-wireplumber-on-debian%2f&title=PipeWire%20with%20Wireplumber%20on%20Debian" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fkatakinonai.github.io%2fposts%2fpipewire-with-wireplumber-on-debian%2f&title=PipeWire%20with%20Wireplumber%20on%20Debian" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fkatakinonai.github.io%2fposts%2fpipewire-with-wireplumber-on-debian%2f&name=PipeWire%20with%20Wireplumber%20on%20Debian&description=%3ch2%20id%3d%22add-the-repo%22%3eAdd%20the%20repo%3c%2fh2%3e%0a%3cp%3eTo%20be%20able%20to%20download%20Wireplumber%2c%20let%26rsquo%3bs%20first%20add%20the%20repository.%3c%2fp%3e%0a%3cp%3eFind%20your%20architecture%20%3ca%20href%3d%22https%3a%2f%2fpackages.debian.org%2fsid%2fwireplumber%22%3ehere%3c%2fa%3e%20and%20follow%20the%20instructions.%20Here%26rsquo%3bs%20an%20example%20for%20AMD64%20machines%2c%20add%20this%20to%20your%20%3ccode%3e%2fetc%2fapt%2fsources.list%3c%2fcode%3e%3a%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cpre%20tabindex%3d%220%22%20style%3d%22color%3a%23f8f8f2%3bbackground-color%3a%23272822%3b-moz-tab-size%3a4%3b-o-tab-size%3a4%3btab-size%3a4%3b%22%3e%3ccode%20class%3d%22language-shell%22%20data-lang%3d%22shell%22%3e%3cspan%20style%3d%22display%3aflex%3b%22%3e%3cspan%3edeb%20http%3a%2f%2fftp.de.debian.org%2fdebian%20sid%20main%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2fdiv%3e%3cp%3eBe%20sure%20to%20remove%20the%20repository%20from%20%3ccode%3e%2fetc%2fapt%2fsources.list.d%2f%3c%2fcode%3e%20after%20installing%20all%20the%20necessary%20packages.%20If%20you%20run%20%3ccode%3eapt%20update%20%26amp%3b%26amp%3b%20apt%20upgrade%3c%2fcode%3e%20while%20having%20the%20added%20unstable%20repo%20in%20the%20list%2c%20upgrading%20will%20switch%20your%20system%20to%20unstable.%3c%2fp%3e" aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fkatakinonai.github.io%2fposts%2fpipewire-with-wireplumber-on-debian%2f&t=PipeWire%20with%20Wireplumber%20on%20Debian" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#add-the-repo">Add the repo</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#enable-pipewire">Enable PipeWire</a></li>
+    <li><a href="#enable-wireplumber">Enable Wireplumber</a></li>
+    <li><a href="#autoswitch-on-connect">Autoswitch on connect</a></li>
+  </ul>
+</nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        PipeWire with Wireplumber on Debian
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2023-01-01 17:30:15 &#43;0500 &#43;05" itemprop="datePublished">2023-01-01</time>
+          
+        </div>
+        
+        
+        
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <h2 id="add-the-repo">Add the repo</h2>
+<p>To be able to download Wireplumber, let&rsquo;s first add the repository.</p>
+<p>Find your architecture <a href="https://packages.debian.org/sid/wireplumber">here</a> and follow the instructions. Here&rsquo;s an example for AMD64 machines, add this to your <code>/etc/apt/sources.list</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>deb http://ftp.de.debian.org/debian sid main
+</span></span></code></pre></div><p>Be sure to remove the repository from <code>/etc/apt/sources.list.d/</code> after installing all the necessary packages. If you run <code>apt update &amp;&amp; apt upgrade</code> while having the added unstable repo in the list, upgrading will switch your system to unstable.</p>
+<h2 id="installation">Installation</h2>
+<p>Now, update the packages:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt update
+</span></span></code></pre></div><p>Install PipeWire, Wireplumber and dependencies:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt install gstreamer1.0-pipewire <span style="color:#ae81ff">\ </span>
+</span></span><span style="display:flex;"><span>                 libpipewire-0.3-<span style="color:#f92672">{</span>0,dev,modules<span style="color:#f92672">}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                 libspa-0.2-<span style="color:#f92672">{</span>bluetooth,dev,jack,modules<span style="color:#f92672">}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                 pipewire<span style="color:#f92672">{</span>,-<span style="color:#f92672">{</span>audio-client-libraries,pulse,bin,jack,alsa,v4l2,libcamera,locales,tests<span style="color:#f92672">}}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                 wireplumber<span style="color:#f92672">{</span>,-doc<span style="color:#f92672">}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                 gir1.2-wp-0.4 libwireplumber-0.4-<span style="color:#f92672">{</span>0,dev<span style="color:#f92672">}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                 pipewire-media-session
+</span></span></code></pre></div><h2 id="enable-pipewire">Enable PipeWire</h2>
+<p>Disable PulseAudio and related services:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl --user --now disable pulseaudio.<span style="color:#f92672">{</span>socket,service<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>systemctl --user mask pulseaudio
+</span></span></code></pre></div><p>Copy the configuration files:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo cp -vRa /usr/share/pipewire /etc/
+</span></span></code></pre></div><p>Enable PipeWire services:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl --user --now enable pipewire<span style="color:#f92672">{</span>,-pulse<span style="color:#f92672">}</span>.<span style="color:#f92672">{</span>socket,service<span style="color:#f92672">}</span> filter-chain.service
+</span></span></code></pre></div><p>Start <code>pipewire-media-session</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl --user enable --now pipewire-media-session.service
+</span></span></code></pre></div><h2 id="enable-wireplumber">Enable Wireplumber</h2>
+<p>Finally, start Wireplumber:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl --user --now enable wireplumber.service
+</span></span></code></pre></div><p>Reboot and check whether it&rsquo;s running:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pactl info | grep <span style="color:#e6db74">&#39;^Server Name&#39;</span>
+</span></span></code></pre></div><p>Expected output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Server Name: PulseAudio <span style="color:#f92672">(</span>on PipeWire 0.3.63<span style="color:#f92672">)</span>
+</span></span></code></pre></div><h2 id="autoswitch-on-connect">Autoswitch on connect</h2>
+<p>If you use bluetooth headphones, it&rsquo;s a neat feature to switch the audio to it automatically. You can enable it by adding the next line to <code>content.exec</code> in <code>/etc/pipewire/pipewire.conf</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>context.exec <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">{</span> path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;pactl&#34;</span> args <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;load-module module-switch-on-connect&#34;</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">]</span>
+</span></span></code></pre></div><h1 id="reference">Reference:</h1>
+<ol>
+<li><a href="https://wiki.debian.org/PipeWire">PipeWire on Debian Wiki</a></li>
+<li><a href="https://wiki.archlinux.org/title/PipeWire">PipeWire on Arch Wiki</a></li>
+<li><a href="https://github.com/pipewire-debian/pipewire-debian">pipewire-debian/pipewire-debian on GitHub</a></li>
+<li><a href="https://packages.debian.org/sid/amd64/wireplumber/download">PipeWire Debian Package</a></li>
+</ol>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Posts</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#add-the-repo">Add the repo</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#enable-pipewire">Enable PipeWire</a></li>
+    <li><a href="#enable-wireplumber">Enable Wireplumber</a></li>
+    <li><a href="#autoswitch-on-connect">Autoswitch on connect</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fkatakinonai.github.io%2fposts%2fpipewire-with-wireplumber-on-debian%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fkatakinonai.github.io%2fposts%2fpipewire-with-wireplumber-on-debian%2f&text=PipeWire%20with%20Wireplumber%20on%20Debian" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fkatakinonai.github.io%2fposts%2fpipewire-with-wireplumber-on-debian%2f&title=PipeWire%20with%20Wireplumber%20on%20Debian" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fkatakinonai.github.io%2fposts%2fpipewire-with-wireplumber-on-debian%2f&is_video=false&description=PipeWire%20with%20Wireplumber%20on%20Debian" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=PipeWire%20with%20Wireplumber%20on%20Debian&body=Check out this article: https%3a%2f%2fkatakinonai.github.io%2fposts%2fpipewire-with-wireplumber-on-debian%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fkatakinonai.github.io%2fposts%2fpipewire-with-wireplumber-on-debian%2f&title=PipeWire%20with%20Wireplumber%20on%20Debian" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fkatakinonai.github.io%2fposts%2fpipewire-with-wireplumber-on-debian%2f&title=PipeWire%20with%20Wireplumber%20on%20Debian" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fkatakinonai.github.io%2fposts%2fpipewire-with-wireplumber-on-debian%2f&name=PipeWire%20with%20Wireplumber%20on%20Debian&description=%3ch2%20id%3d%22add-the-repo%22%3eAdd%20the%20repo%3c%2fh2%3e%0a%3cp%3eTo%20be%20able%20to%20download%20Wireplumber%2c%20let%26rsquo%3bs%20first%20add%20the%20repository.%3c%2fp%3e%0a%3cp%3eFind%20your%20architecture%20%3ca%20href%3d%22https%3a%2f%2fpackages.debian.org%2fsid%2fwireplumber%22%3ehere%3c%2fa%3e%20and%20follow%20the%20instructions.%20Here%26rsquo%3bs%20an%20example%20for%20AMD64%20machines%2c%20add%20this%20to%20your%20%3ccode%3e%2fetc%2fapt%2fsources.list%3c%2fcode%3e%3a%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cpre%20tabindex%3d%220%22%20style%3d%22color%3a%23f8f8f2%3bbackground-color%3a%23272822%3b-moz-tab-size%3a4%3b-o-tab-size%3a4%3btab-size%3a4%3b%22%3e%3ccode%20class%3d%22language-shell%22%20data-lang%3d%22shell%22%3e%3cspan%20style%3d%22display%3aflex%3b%22%3e%3cspan%3edeb%20http%3a%2f%2fftp.de.debian.org%2fdebian%20sid%20main%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2fdiv%3e%3cp%3eBe%20sure%20to%20remove%20the%20repository%20from%20%3ccode%3e%2fetc%2fapt%2fsources.list.d%2f%3c%2fcode%3e%20after%20installing%20all%20the%20necessary%20packages.%20If%20you%20run%20%3ccode%3eapt%20update%20%26amp%3b%26amp%3b%20apt%20upgrade%3c%2fcode%3e%20while%20having%20the%20added%20unstable%20repo%20in%20the%20list%2c%20upgrading%20will%20switch%20your%20system%20to%20unstable.%3c%2fp%3e" aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fkatakinonai.github.io%2fposts%2fpipewire-with-wireplumber-on-debian%2f&t=PipeWire%20with%20Wireplumber%20on%20Debian" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2024   
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Posts</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+</html>
