@@ -1,72 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My Homepage on Palenight Blues</title>
+    <title>My Blogs on </title>
     <link>https://katakinonai.github.io/</link>
-    <description>Recent content in My Homepage on Palenight Blues</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 15 Nov 2022 14:06:53 +0500</lastBuildDate><atom:link href="https://katakinonai.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in My Blogs on </description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 01 Jan 2023 17:30:15 +0500</lastBuildDate>
+    <atom:link href="https://katakinonai.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PipeWire with Wireplumber on Debian</title>
+      <link>https://katakinonai.github.io/posts/pipewire-with-wireplumber-on-debian/</link>
+      <pubDate>Sun, 01 Jan 2023 17:30:15 +0500</pubDate>
+      <guid>https://katakinonai.github.io/posts/pipewire-with-wireplumber-on-debian/</guid>
+      <description>&lt;h2 id=&#34;add-the-repo&#34;&gt;Add the repo&lt;/h2&gt;&#xA;&lt;p&gt;To be able to download Wireplumber, let&amp;rsquo;s first add the repository.&lt;/p&gt;&#xA;&lt;p&gt;Find your architecture &lt;a href=&#34;https://packages.debian.org/sid/wireplumber&#34;&gt;here&lt;/a&gt; and follow the instructions. Here&amp;rsquo;s an example for AMD64 machines, add this to your &lt;code&gt;/etc/apt/sources.list&lt;/code&gt;:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;deb http://ftp.de.debian.org/debian sid main&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Be sure to remove the repository from &lt;code&gt;/etc/apt/sources.list.d/&lt;/code&gt; after installing all the necessary packages. If you run &lt;code&gt;apt update &amp;amp;&amp;amp; apt upgrade&lt;/code&gt; while having the added unstable repo in the list, upgrading will switch your system to unstable.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Take Screenshots in Bspwm with ImageMagick</title>
       <link>https://katakinonai.github.io/posts/take-screenshots-in-bspwm-with-imagemagick/</link>
       <pubDate>Tue, 15 Nov 2022 14:06:53 +0500</pubDate>
-      
       <guid>https://katakinonai.github.io/posts/take-screenshots-in-bspwm-with-imagemagick/</guid>
-      <description>Prerequisites Packages:
-bspwm sxhkd imagemagick (in some repos &amp;lsquo;ImageMagick&amp;rsquo;) notify-send bspwmrc Initialize sxhkd in your bspwmrc (by default, located in $HOME/.config/bspwm/bspwmrc);
-pgrep -x sxhkd &amp;gt; /dev/null || sxhkd &amp;amp; Custom directory You can create a custom directory to keep your screenshots in there, for example:
-mkdir $HOME/Pictures/Screenshots/ sxhkdrc Let&amp;rsquo;s create keybindingds in sxhkdrc (by default, located in $HOME/.config/sxhkd/sxhkdrc).
-Take a screenshot of a certain area and save it: super + p import $HOME/Pictures/Screenshots/Screenshot\ $(date).</description>
+      <description>&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;&#xA;&lt;p&gt;Packages:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;bspwm&lt;/li&gt;&#xA;&lt;li&gt;sxhkd&lt;/li&gt;&#xA;&lt;li&gt;imagemagick (in some repos &amp;lsquo;ImageMagick&amp;rsquo;)&lt;/li&gt;&#xA;&lt;li&gt;notify-send&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;bspwmrc&#34;&gt;bspwmrc&lt;/h2&gt;&#xA;&lt;p&gt;Initialize &lt;code&gt;sxhkd&lt;/code&gt; in your &lt;code&gt;bspwmrc&lt;/code&gt; (by default, located in &lt;code&gt;$HOME/.config/bspwm/bspwmrc&lt;/code&gt;);&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pgrep -x sxhkd &amp;gt; /dev/null &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; sxhkd &amp;amp;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;custom-directory&#34;&gt;Custom directory&lt;/h2&gt;&#xA;&lt;p&gt;You can create a custom directory to keep your screenshots in there, for example:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir $HOME/Pictures/Screenshots/&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;sxhkdrc&#34;&gt;sxhkdrc&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s create keybindings in &lt;code&gt;sxhkdrc&lt;/code&gt; (by default, located in &lt;code&gt;$HOME/.config/sxhkd/sxhkdrc&lt;/code&gt;).&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Take a screenshot of a certain area and save it:&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;super + p&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  import $HOME/Pictures/Screenshots/Screenshot&lt;span style=&#34;color:#ae81ff&#34;&gt;\ &lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;date&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;.png&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;Take a screenshot of the entire screen (including external displays):&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;super + shift + p&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  import -window root $HOME/Pictures/Screenshots/Screenshot&lt;span style=&#34;color:#ae81ff&#34;&gt;\ &lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;date&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;.png&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;&#xA;&lt;p&gt;If you&amp;rsquo;re using &lt;code&gt;xbanish&lt;/code&gt; to hide the cursor when typing, it will cause the cursor to disappear after pressing a keybinding to take a screenshot of a certain area.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to easily host a Hugo website on Github Pages</title>
       <link>https://katakinonai.github.io/posts/simply-host-hugo-website-on-github-pages/</link>
       <pubDate>Sat, 12 Nov 2022 18:14:20 +0500</pubDate>
-      
       <guid>https://katakinonai.github.io/posts/simply-host-hugo-website-on-github-pages/</guid>
-      <description>Documentation:
-Hugo Github Pages Prerequisites Steps from Quick Start Have some content in .md in /content folder Theme installed (themes list) Separate Github repository for the project created Action If you have cloned repositories in the /themes folder, remove .git directories in them. Otherwise, it will cause an error when building remotely.
-Build your project into /public folder: hugo Add all the files from the project root folder to a commit and push it to the repo.</description>
+      <description>&lt;p&gt;Documentation:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gohugo.io/documentation/&#34;&gt;Hugo&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.github.com/en/rest/pages&#34;&gt;Github Pages&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Steps from &lt;a href=&#34;https://gohugo.io/getting-started/quick-start/&#34;&gt;Quick Start&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Have some content in &lt;code&gt;.md&lt;/code&gt; in &lt;code&gt;/content&lt;/code&gt; folder&lt;/li&gt;&#xA;&lt;li&gt;Theme installed (&lt;a href=&#34;https://hugothemesfree.com/&#34;&gt;themes list&lt;/a&gt;)&lt;/li&gt;&#xA;&lt;li&gt;Separate Github repository for the project created&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;action&#34;&gt;Action&lt;/h2&gt;&#xA;&lt;p&gt;&lt;em&gt;If you have cloned repositories in the &lt;code&gt;/themes&lt;/code&gt; folder, remove &lt;code&gt;.git&lt;/code&gt; directories in them. Otherwise, it will cause an error when building remotely.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Build your project into &lt;code&gt;/public&lt;/code&gt; folder:&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;Add all the files from the project root folder to a commit and push it to the repo.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git add . &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Initial commit&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; git push -u&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;Open your repository on Github and click &amp;ldquo;Settings&amp;rdquo;. Open &amp;ldquo;Pages&amp;rdquo; and in &amp;ldquo;Branch&amp;rdquo; subsection choose &amp;ldquo;/docs&amp;rdquo; folder. Click &amp;ldquo;Save&amp;rdquo;.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;You may use Github Actions, but the easier way is to deploy from &amp;ldquo;/docs&amp;rdquo; folder directly.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Multiple monitor setup - bspwm &#43; Polybar</title>
       <link>https://katakinonai.github.io/posts/multiple-monitor-setup-bspwm-&#43;-polybar/</link>
       <pubDate>Thu, 10 Nov 2022 19:49:41 +0500</pubDate>
-      
       <guid>https://katakinonai.github.io/posts/multiple-monitor-setup-bspwm-&#43;-polybar/</guid>
-      <description>Required packages:
-bspwm polybar xrandr autorandr Detect connected displays First of all, we want to check the discriptors of connected displays with this command:
-&amp;gt; xrandr --listmonitors Monitors: 2 0: +*eDP1 1920/280x1080/160+0+0 eDP1 1: +HDMI2 1680/470x1050/300+1920+0 HDMI2 Let&amp;rsquo;s remember these; I&amp;rsquo;ll describe my monitors as eDP1 (my laptop&amp;rsquo;s display) and HDMI2 (external monitor).
-Startup script Next, we&amp;rsquo;re going to create a script which detects an external monitor when connected, moves bspwm desktops to it and removes those when a monitor is disconnected.</description>
+      <description>&lt;p&gt;&lt;img alt=&#34;Image&#34; src=&#34;https://katakinonai.github.io/Multiple-Monitor-Setup-bspwm-+-Polybar/IMG_0120.PNG&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Required packages:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;bspwm&lt;/li&gt;&#xA;&lt;li&gt;polybar&lt;/li&gt;&#xA;&lt;li&gt;xrandr&lt;/li&gt;&#xA;&lt;li&gt;autorandr&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;detect-connected-displays&#34;&gt;Detect connected displays&lt;/h2&gt;&#xA;&lt;p&gt;First of all, we want to check the discriptors of connected displays with this command:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; xrandr --listmonitors&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Monitors: &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 0: +*eDP1 1920/280x1080/160+0+0  eDP1&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 1: +HDMI2 1680/470x1050/300+1920+0  HDMI2&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s remember these; I&amp;rsquo;ll describe my monitors as eDP1 (my laptop&amp;rsquo;s display) and HDMI2 (external monitor).&lt;/p&gt;&#xA;&lt;h2 id=&#34;startup-script&#34;&gt;Startup script&lt;/h2&gt;&#xA;&lt;p&gt;Next, we&amp;rsquo;re going to create a script which detects an external monitor when connected, moves bspwm desktops to it and removes those when a monitor is disconnected.&lt;/p&gt;</description>
     </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://katakinonai.github.io/about/</link>
-      <pubDate>Thu, 10 Nov 2022 19:43:19 +0500</pubDate>
-      
-      <guid>https://katakinonai.github.io/about/</guid>
-      <description>Here is some content. All in Markdown.
-List asdf -asdf Dictionary Definitions asdf asdf </description>
-    </item>
-    
     <item>
       <title>How to install and patch st</title>
       <link>https://katakinonai.github.io/posts/how-to-patch-simple-terminal/</link>
       <pubDate>Wed, 09 Nov 2022 19:30:30 +0500</pubDate>
-      
       <guid>https://katakinonai.github.io/posts/how-to-patch-simple-terminal/</guid>
-      <description>Patching documentation
-Click the download link on the st website at the very bottom and extract (replace the version number):
-cd $HOME/Downloads/ tar xvf st-X.X.tar.gz Now, you can build and have a working binary of st (although, very minimal):
-cd st-X.X/ make clean install Check out the available patches here. Take the one you need and download with:
-curl -O &amp;lt;download link&amp;gt; Apply the patch:
-patch -p1 &amp;lt; path/to/patch.diff And rebuild the binary:</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://suckless.org/hacking/&#34;&gt;Patching documentation&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Click the download link on the &lt;a href=&#34;https://st.suckless.org/&#34;&gt;st&lt;/a&gt; website at the very bottom and extract (replace the version number):&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd $HOME/Downloads/ &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tar xvf st-X.X.tar.gz&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, you can build and have a working binary of st (although, very minimal):&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd st-X.X/&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make clean install&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check out the available patches &lt;a href=&#34;https://st.suckless.org/patches/&#34;&gt;here&lt;/a&gt;. Take the one you need and download with:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -O &amp;lt;download link&amp;gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Apply the patch:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;patch -p1 &amp;lt; path/to/patch.diff&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And rebuild the binary:&lt;/p&gt;</description>
     </item>
-    
+    <item>
+      <title>About</title>
+      <link>https://katakinonai.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://katakinonai.github.io/about/</guid>
+      <description>&lt;h1 id=&#34;about&#34;&gt;About&lt;/h1&gt;</description>
+    </item>
   </channel>
 </rss>
